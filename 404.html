@@ -55,6 +55,15 @@
 
     </style>
   </head>
+<script>
+	function refresh () {
+		window.location.reload()
+	}
+	function open_tt (URL) {
+		const url = String(URL);
+		location.href = url;
+	}
+</script>
   <body>
 
     <div class="container">
@@ -65,9 +74,8 @@
       <p>
         这是一个不存在的页面
       </p >
-
-      <p>
-        <a href="https://431658.github.io/">首页</a >
+      <a href="https://431658.github.io/">首页</a >
+		  <a href="javascript:void 0" onclick="refresh()">刷新</a >
       </p >
 
     </div>
