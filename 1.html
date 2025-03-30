@@ -156,6 +156,12 @@
                 details.scrollIntoView({ behavior: 'smooth' });
             }
         }
+        function isMobileByUserAgent() {
+            const mobileKeywords = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+            return mobileKeywords.test(navigator.userAgent);
+        }
+        if(isMobileByUserAgent()) document.body.outerHTML.replace(/电脑/gi, "手机")
     </script>
 </body>
 </html>
+​
