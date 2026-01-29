@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快速屏幕闪烁</title>
+    <style>
+        body, html {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 定义两个颜色用于交替显示
+        const colors = ["black", "white"];
+        let currentIndex = 0;
+
+        // 设置一个间隔来改变背景颜色
+        setInterval(() => {
+            // 获取body元素
+            document.body.style.backgroundColor = colors[currentIndex];
+            // 切换到下一个颜色
+            currentIndex = (currentIndex + 1) % colors.length;
+        }, 100); // 间隔时间（毫秒），此处为100毫秒，即0.1秒
+
+    </script>
+</body>
