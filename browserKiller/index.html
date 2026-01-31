@@ -1,3 +1,18 @@
 <h1>干爆浏览器</h1>
 <p>收录一些能卡爆浏览器的代码</p>
 <p>浏览器卡死后关闭浏览器即可</p>
+<li><a href="javascript:while(true);">死循环</a></li>
+<li><a href="javascript:let total = '';setTimeout(()=>{for (let i = 0; ; i++) {total += i.toString();try {history.pushState(0, 0, total);} catch { }}},0)">url字符注入</a></li>
+<li><a href="javascript:setInterval(() => {
+    setInterval(() => {
+    const i = document.createElement('div');
+    i.style.position = 'fixed';
+    i.style.top = '0';
+    i.style.left = '0';
+    i.style.right = '0';
+    i.style.bottom = '0';
+    i.style.backdropFilter = 'invert(1)';
+    document.body.appendChild(i);
+    }, 1);
+  }, 1)">无限反色</a></li>
+<li><a href="iframe">iframe</a></li>
