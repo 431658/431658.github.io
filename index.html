@@ -1,8 +1,385 @@
-<h1>不想上学的网站</h1>
-<p>微信：jws12301234789huf</p>
-<p>QQ：864517308</p>
-<li><a href="error">我的网站崩了</a></li>
-<li><a href="eyeProtector">护眼模式</a></li>
-<li><a href="1">无法访问的网站</a></li>
-<li><a href="refresh">测试：刷新页面</a></li>
-<li><a href="browserKiller">测试：卡死页面</a></li>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不想上学的网站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #1a1a2e;
+            color: #f0f0f0;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(28, 58, 173, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(200, 100, 50, 0.1) 0%, transparent 20%);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* 装饰元素 */
+        .decoration {
+            position: absolute;
+            z-index: -1;
+        }
+        
+        .book {
+            top: 10%;
+            right: 5%;
+            width: 60px;
+            height: 80px;
+            background: #8B4513;
+            border-radius: 5px 10px 10px 5px;
+            transform: rotate(15deg);
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .book:before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 0;
+            width: 100%;
+            height: 90%;
+            background: #A0522D;
+            border-radius: 5px 10px 10px 5px;
+        }
+        
+        .pencil {
+            bottom: 20%;
+            left: 5%;
+            width: 100px;
+            height: 8px;
+            background: #FFD700;
+            transform: rotate(-20deg);
+        }
+        
+        .pencil:before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 0;
+            width: 20px;
+            height: 14px;
+            background: #FF6347;
+            border-radius: 2px;
+        }
+        
+        .pencil:after {
+            content: '';
+            position: absolute;
+            top: 1px;
+            right: 0;
+            width: 8px;
+            height: 8px;
+            background: #808080;
+            border-radius: 0 2px 2px 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff9a00, #ff0066, #00ccff, #ff9a00);
+            background-size: 400% 100%;
+            animation: rainbow 8s linear infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 400% 50%; }
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            color: #ff9a00;
+            text-shadow: 0 0 10px rgba(255, 154, 0, 0.5);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h1:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff9a00, transparent);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            background-color: rgba(40, 40, 60, 0.8);
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 154, 0, 0.3);
+        }
+        
+        .contact-icon {
+            font-size: 1.8rem;
+        }
+        
+        .wechat-icon {
+            color: #09bb07;
+        }
+        
+        .qq-icon {
+            color: #12b7f5;
+        }
+        
+        .links-container {
+            background-color: rgba(30, 30, 50, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .links-container h2 {
+            text-align: center;
+            color: #00ccff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        ul {
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        
+        li {
+            margin-bottom: 0;
+        }
+        
+        a {
+            display: block;
+            padding: 15px 20px;
+            background-color: rgba(50, 50, 80, 0.8);
+            color: #f0f0f0;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s;
+            border-left: 5px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.7s;
+        }
+        
+        a:hover:before {
+            left: 100%;
+        }
+        
+        a:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* 为不同链接设置不同颜色 */
+        a[href="error"] {
+            border-left-color: #ff5555;
+        }
+        
+        a[href="eyeProtector"] {
+            border-left-color: #55ff55;
+        }
+        
+        a[href="1"] {
+            border-left-color: #5555ff;
+        }
+        
+        a[href="refresh"] {
+            border-left-color: #ffff55;
+        }
+        
+        a[href="browserKiller"] {
+            border-left-color: #ff55ff;
+        }
+        
+        a[href="error"]:hover {
+            background-color: rgba(255, 85, 85, 0.2);
+        }
+        
+        a[href="eyeProtector"]:hover {
+            background-color: rgba(85, 255, 85, 0.2);
+        }
+        
+        a[href="1"]:hover {
+            background-color: rgba(85, 85, 255, 0.2);
+        }
+        
+        a[href="refresh"]:hover {
+            background-color: rgba(255, 255, 85, 0.2);
+        }
+        
+        a[href="browserKiller"]:hover {
+            background-color: rgba(255, 85, 255, 0.2);
+        }
+        
+        .link-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .warning {
+            text-align: center;
+            margin-top: 25px;
+            padding: 15px;
+            background-color: rgba(255, 100, 100, 0.2);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 100, 100, 0.5);
+            color: #ff9999;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 装饰元素 -->
+    <div class="decoration book"></div>
+    <div class="decoration pencil"></div>
+    
+    <div class="container">
+        <h1>不想上学的网站</h1>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon wechat-icon">
+                    <i class="fab fa-weixin"></i>
+                </div>
+                <div>
+                    <p>微信：jws12301234789huf</p>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon qq-icon">
+                    <i class="fab fa-qq"></i>
+                </div>
+                <div>
+                    <p>QQ：864517308</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="links-container">
+            <h2><i class="fas fa-link"></i> 网站链接与测试功能</h2>
+            <ul>
+                <li><a href="error"><i class="link-icon fas fa-unlink"></i> 我的网站崩了</a></li>
+                <li><a href="eyeProtector"><i class="link-icon fas fa-eye"></i> 护眼模式</a></li>
+                <li><a href="1"><i class="link-icon fas fa-ban"></i> 无法访问的网站</a></li>
+                <li><a href="refresh"><i class="link-icon fas fa-redo"></i> 测试：刷新页面</a></li>
+                <li><a href="browserKiller"><i class="link-icon fas fa-skull-crossbones"></i> 测试：卡死页面</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>© 2026 不想上学的网站 | 部分样式由ai生成</p>
+        </div>
+    </div>
+
+    <script>
+        // 添加一些交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加一些动态效果
+            const title = document.querySelector('h1');
+            title.addEventListener('mouseover', function() {
+                this.style.textShadow = '0 0 20px rgba(255, 154, 0, 0.8)';
+            });
+            
+            title.addEventListener('mouseout', function() {
+                this.style.textShadow = '0 0 10px rgba(255, 154, 0, 0.5)';
+            });
+        });
+    </script>
+</body>
+</html>
